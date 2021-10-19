@@ -1,0 +1,17 @@
+<p>
+  <input type="text" #todoInput> <button (click)="addTodo(todoInput.value)">Add</button>
+</p>
+
+<ul>
+  <li *ngFor="let todo of todoList; let i = index">
+    <label>
+      <input type="checkbox" [checked]="todo.isCompleted" (change)="toggleChecked(i)"> {{ todo.name }}
+    </label>
+  </li>
+</ul>
+
+<p>
+  {{ todoList | uncompleted }} todo left
+</p>
+
+<pre>{{ todoList | json }}</pre>
